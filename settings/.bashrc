@@ -1,8 +1,8 @@
 ############################################################################################
 source ~/.sshrc						# Command line prompt
-source ~/_resources/_scripts/.company_vars		# Company specific vars
-source ~/.current_aws_profile		# Currently selected AWS profile "export AWS_PROFILE=...", code in ~/.company_vars
-source ~/.current_aws_region        # Currently selected AWS region "export AWS_REGION=...", code in ~/.company_vars
+# source ~/_resources/_scripts/.company_vars		# Company specific vars
+# source ~/.current_aws_profile		# Currently selected AWS profile "export AWS_PROFILE=...", code in ~/.company_vars
+# source ~/.current_aws_region        # Currently selected AWS region "export AWS_REGION=...", code in ~/.company_vars
 
 # my tools
 export PATH=$PATH:~/_docs/_projects/tools/jp
@@ -114,9 +114,6 @@ alias mj='mvn jar:jar shade:shade'
 alias g='gradle --console=verbose'
 alias gw='./gradlew --console=verbose'
 
-# vonage aws
-alias v='vonage-aws'
-
 # yt-dlp
 alias yt='yt-dlp -f 'ba' -x --audio-format mp3 '
 
@@ -128,7 +125,7 @@ alias sed='gsed'
 
 # Java
 # export JAVA_HOME=`/usr/libexec/java_home`
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home
+export JAVA_HOME=/usr/local/Cellar/openjdk@8/1.8.0-452/libexec/openjdk.jdk/Contents/Home
 export CLASSPATH="."
 export PATH=$PATH:/usr/libexec/
 
@@ -152,7 +149,7 @@ export PATH=/opt/homebrew/bin:$PATH
 
 #############################################################################################
 # Editors 
-export VISUAL=code
-export EDITOR=code
+export VISUAL=nano
+export EDITOR=nano
 
 PS1="${VNG_AWS_PS1}${PS1}"

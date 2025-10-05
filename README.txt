@@ -27,7 +27,7 @@ vivaldi
 - Bitwarden extention. Configure it to not lock on computer lock and to autofil pages
 - Login to Vivaldi & enable settings sync
 - set it as default browser in System Preferences
-- setup shortcuts in ~/_learning/_misc/shortcuts.txt
+- setup shortcuts - see below in this page
 
 git
 - git config --global user.name Alex-Momotov
@@ -51,14 +51,16 @@ git - access token authentication, for hub cli commands that use github API
 
 vscode
 - activate dracula theme and material icon theme from command palette
-- switch between running commands in integrated/external terminal:
+- To switch between running commands in integrated/external terminal, search 'Open Keyboard Shortcuts (JSON)' and switch up last statement:
   - integrated          workbench.action.terminal.runSelectedText
   - external terminal   run-external.iterm
-  * Search 'Open Keyboard Shortcuts (JSON)' and switch up last statement
 
 iterm
 - preferences > general tab > 'Preferences' subtab > "Load preferences from a custom folder or URL" > Browse and select .../dotfiles/settings/iterm/iterm_settings/ dir > 'Save current settings to folder' > also select 'save changes': 'automatically'
 - close iterm > git checkout settings/iterm/iterm_settings/com.googlecode.iterm2.plist
+
+forklift
+view > show one pane / show two panes
 
 spectacle
 - disable control+arrow key shortcuts used by Spectable under Settings > Keyboard > Shortcuts > Mission control 
@@ -83,5 +85,45 @@ Sym links in ~/... point to files in  ~/_projects_my/dotfiles/settings/... for a
 .company_vars	    Sensitive company specific vars, the file is never checked into VSC.
 
 
+# _____________________________________________________________________________________________
+# SHORTCUTS 
 
+# VsCode cli commands
+code --list-extensions	# list extensions
+code -a <folder>		# add folder or file to current vscode window
 
+# VsCode shortcuts
+shift + cmd + P 	# command pallete
+shift + cmd + T		# terminal at current file
+cmd + E				# extensions
+cmd + R				# reveal file
+cmd + S				# search
+
+cmd + J 		# prettify JSON
+control + J		# flatten selected JSON
+cmd + L			# align columns of CSV
+
+# VsCode snippets (expandable with Tab)
+cel
+
+# VsCode Python plugin (ms-python.python)
+Python: Select Interpreter	# Switch between Python interpreters, versions, and environments.
+Python: Configure Tests		# Select a test framework and configure it to display the Test Explorer.
+Format Document				# Formats code using the provided formatter in the settings.json file.
+
+To run a debugger:	go to python file, create breakpoint, on the upper bar click down arrow and select "Debug Python File"
+To run file in terminal: same as above but just click the play button
+
+# Vivaldi 
+shift + cmd + P		# 'unpin tab' pin / unpin tab
+shift + cmd + A		# 'address bar' toggle address bar visilibity
+shift + cmd + B		# 'panel toggle' toggle side panel arrow (in order to close persistent side panel thing)
+
+# IntelliJ IDEA
+shift + cmd + G 	# Copies git reference to a file on selected file
+
+# Slack 
+cmd + k 		  # Search channel
+cmd + shift + u   # Link url to a text
+
+# _____________________________________________________________________________________________
