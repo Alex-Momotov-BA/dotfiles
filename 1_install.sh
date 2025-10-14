@@ -55,7 +55,7 @@ wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
 # sshrc
 wget https://raw.githubusercontent.com/cdown/sshrc/master/sshrc
 chmod +x sshrc
-sudo mv sshrc /usr/local/bin
+sudo mv sshrc /usr/local/bin/
 
 # Duti file associations
 source ./settings/duti_associations.sh

@@ -43,6 +43,9 @@ alias pipenvs='echo ~/.local/share/virtualenvs/ ; ls ~/.local/share/virtualenvs/
 # pyenv
 alias pyenvs='pyenv versions'
 
+# pip
+alias pip='pip3'
+
 # git
 alias gf='git fetch'
 alias gd='git diff'
