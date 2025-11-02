@@ -1,6 +1,6 @@
 ############################################################################################
 source ~/.sshrc						# Command line prompt
-# source ~/_resources/_scripts/.company_vars		# Company specific vars
+source ~/.company_vars		        # Company specific vars
 # source ~/.current_aws_profile		# Currently selected AWS profile "export AWS_PROFILE=...", code in ~/.company_vars
 # source ~/.current_aws_region        # Currently selected AWS region "export AWS_REGION=...", code in ~/.company_vars
 
@@ -148,6 +148,7 @@ export PATH=/opt/homebrew/bin:$PATH
 
 # intellij & pycharm
 # export PATH=/Users/omomotov/Applications/IntelliJ IDEA Community Edition.app/Contents/MacOS:$PATH
+export PATH='/Applications/PyCharm CE.app/Contents/MacOS':$PATH
 
 
 #############################################################################################

@@ -48,6 +48,7 @@ brew install yt-dlp/taps/yt-dlp		# youtube video downloader
 brew install openjdk@11
 brew install openjdk@8
 brew install pipenv
+brew install gsed
 
 # nano highlighting 	(if doesn't work follow instructions at https://github.com/scopatz/nanorc)
 wget https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh -O- | sh
@@ -58,7 +59,7 @@ chmod +x sshrc
 sudo mv sshrc /usr/local/bin/
 
 # Duti file associations
-source ./settings/duti_associations.sh
+bash ~/_docs/_projects/dotfiles/settings/duti_associations.sh
 
 # vscode recreate links
 rm ~/Library/Application\ Support/Code/User/settings.json

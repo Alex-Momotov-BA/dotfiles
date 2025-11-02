@@ -8,22 +8,21 @@
 5. Restart computer
 
 apple
-- dock on left side, put all apps on it
-- trackpad scrolling speed 
-- mouth scrolling speed
-- turn off scrolling inertia
-- shortcut to minimise window with cmd+m
-- turn off 'show recent applications in dock'
-- minimise motion
-- tap to click
-- natural scrolling - turn off
-- set control key to be left most
-- fingerprint
 - login to apple account
-- doc icons placement
+- fingerprint
+- dock - on left side, put all apps on it
+- dock - Minimise windows into application icon
+- dock - turn off 'show recent applications in dock'
+- dock - minimise windows using 'Scale Effect'
+- trackpad - tap to click
+- trackpad - natural scrolling - turn off
+- accessibility - "Reduce Motion"
+- keyboard > keyboard shortcuts > modifier keys > set control key to be left most
 - Settings > Battery > Options > turn off "Slightly dim the display on battery"
+- Lock Screen > Lock Screen settings > set everything to 2 hours
 
 vivaldi
+- set as default browser. Settings > search 'default browser'
 - Bitwarden extention. Configure it to not lock on computer lock and to autofil pages
 - Login to Vivaldi & enable settings sync
 - set it as default browser in System Preferences
@@ -34,7 +33,7 @@ git
 - git config --global user.email momotovalex@gmail.com
 
 git - ssh authentication, for git cli commands that use SSH
-- cd ~/.ssh && ssh-keygen -t ed25519 -C "momotovalex@gmail.com"		# generate new ssh key, don't use passphrase
+- mkdir ~/.ssh && cd ~/.ssh && ssh-keygen -t ed25519 -C "momotovalex@gmail.com"		# generate new ssh key, don't use passphrase
 - touch ~/.ssh/config # then append following to ~/.ssh/config. Make sure to use correct private key filename
   Host *
     AddKeysToAgent yes
@@ -116,8 +115,8 @@ To run file in terminal: same as above but just click the play button
 
 # Vivaldi 
 shift + cmd + P		# 'unpin tab' pin / unpin tab
-shift + cmd + A		# 'address bar' toggle address bar visilibity
 shift + cmd + B		# 'panel toggle' toggle side panel arrow (in order to close persistent side panel thing)
+cmd + B 		# 'bookmark panel' 
 
 # IntelliJ IDEA
 shift + cmd + G 	# Copies git reference to a file on selected file

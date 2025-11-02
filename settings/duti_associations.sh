@@ -147,7 +147,9 @@ duti -s com.microsoft.VSCode .cpy all
 duti -s com.microsoft.VSCode .dae all
 duti -s com.microsoft.VSCode .cson all
 duti -s com.microsoft.VSCode .css all
-duti -s com.microsoft.VSCode .csv all
+# duti -s com.microsoft.VSCode .csv all
+duti -s Numbers .csv all
+
 duti -s com.microsoft.VSCode .cue all
 duti -s com.microsoft.VSCode .w all
 duti -s com.microsoft.VSCode .cabal all
