@@ -105,8 +105,8 @@ alias h='helm'
 
 # maven
 alias ma='mvn archetype:generate'
-alias m='mvn clean'
-alias mc='mvn resources:resources compiler:compile'
+alias mc='mvn clean'
+alias mcc='mvn resources:resources compiler:compile'
 alias mct='mvn resources:testResources compiler:testCompile'
 alias mt='mvn surefire:test'
 alias me='mvn compiler:compile exec:java'
@@ -123,12 +123,16 @@ alias yt='yt-dlp -f 'ba' -x --audio-format mp3 '
 # ported GNU commands
 alias sed='gsed'
 
+alias n='nano'
+alias m='micro'
+
 #############################################################################################
 # Env variables
 
 # Java
 # export JAVA_HOME=`/usr/libexec/java_home`
-export JAVA_HOME=/usr/local/Cellar/openjdk@8/1.8.0-452/libexec/openjdk.jdk/Contents/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk
+
 export CLASSPATH="."
 export PATH=$PATH:/usr/libexec/
 
@@ -150,6 +154,9 @@ export PATH=/opt/homebrew/bin:$PATH
 # export PATH=/Users/omomotov/Applications/IntelliJ IDEA Community Edition.app/Contents/MacOS:$PATH
 export PATH='/Applications/PyCharm CE.app/Contents/MacOS':$PATH
 
+# Postgres
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+# export PATH="/opt/homebrew/opt/postgresql@14/bin:$PATH"
 
 #############################################################################################
 # Editors 
