@@ -36,7 +36,7 @@
 - save favourite dirs on the left
 - set iTerm as default terminal. Preferences > General > Default Terminal
 
-# spectacle
+# spectacle / rectangle
 - idea: have capslock as your hyper key
 - disable control+arrow key shortcuts used by Spectable under Settings > Keyboard > Shortcuts > Mission control 
 - change shortcuts
@@ -87,7 +87,6 @@ Sym links in ~/... point to files in  ~/_projects_my/dotfiles/settings/... for a
 .sshrc				    Tool that copies content of .sshrc to a remote server when doing ssh. Sets command line prompt colour. "brew install sshrc"
 .custom_commands	My own bash functions and utils.
 .company_vars	    Sensitive company specific vars, the file is never checked into VSC.
-
 
 # _____________________________________________________________________________________________
 # SHORTCUTS 
