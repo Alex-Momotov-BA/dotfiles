@@ -15,6 +15,7 @@ brew install --cask iterm2
 brew install --cask intellij-idea-ce
 brew install --cask pycharm-ce
 brew install --cask postman
+brew install --cask rectangle
 brew install nano
 brew install highlight		# highlighting for nano
 brew install git

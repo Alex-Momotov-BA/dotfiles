@@ -36,11 +36,6 @@
 - save favourite dirs on the left
 - set iTerm as default terminal. Preferences > General > Default Terminal
 
-# spectacle / rectangle
-- idea: have capslock as your hyper key
-- disable control+arrow key shortcuts used by Spectable under Settings > Keyboard > Shortcuts > Mission control 
-- change shortcuts
-
 # vscode
 - might need to rerun the 1_install.sh commands to recreate symlinks and duti associations
 - activate dracula theme and material icon theme from command palette
