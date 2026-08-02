@@ -7,9 +7,18 @@
 	// Placeholders with the same ids are connected.
 	// Example:
 	"cell": {
+		"scope": "python,shellscript,yaml,toml,dockerfile,makefile,ruby,perl,r,ini,properties,gitignore,txtcustom",
 		"prefix": "cel",
 		"body": [
 			"# _____________________________________________________________________________________________"
+		],
+		"description": "//------------"
+	},
+	"cell-rust": {
+		"scope": "rust",
+		"prefix": "cel",
+		"body": [
+			"// _____________________________________________________________________________________________"
 		],
 		"description": "//------------"
 	}

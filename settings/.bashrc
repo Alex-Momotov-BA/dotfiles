@@ -33,3 +33,4 @@ export PATH="$HOME/.local/bin:$PATH"
 # Editors 
 export VISUAL=nano
 export EDITOR=nano
+. "$HOME/.cargo/env"

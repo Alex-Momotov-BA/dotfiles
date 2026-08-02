@@ -4,7 +4,7 @@ red=$(tput setaf 1);
 yellow=$(tput setaf 3);
 blue=$(tput setaf 4);
 green=$(tput setaf 2);
-orange=$(tput setaf 166);
+orange=$'\e[38;2;240;106;0m';
 white=$(tput setaf 15);
 violet=$(tput setaf 92);
 bold=$(tput bold);
@@ -71,9 +71,9 @@ alias bs='brew services'
 alias ft='open . -a forklift'
 
 # kakfa
-alias kt='kafka-topics --bootstrap-server localhost:9092'
-alias kc='kafka-consumer-groups --bootstrap-server localhost:9092'
-alias kcat='kcat -b localhost:9092'
+alias kt='kafka-topics --bootstrap-server'
+alias kc='kafka-consumer-groups --bootstrap-server'
+alias kcat='kcat -b'
 
 # git
 alias gf='git fetch'
