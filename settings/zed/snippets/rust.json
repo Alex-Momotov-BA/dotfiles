@@ -1,0 +1,16 @@
+{
+  "cell": {
+    "prefix": "cel",
+    "body": [
+      "// _____________________________________________________________________________________________"
+    ],
+    "description": "comment break line"
+  },
+  "print": {
+    "prefix": "print",
+    "body": [
+      "println!(\"{:?}\", $0);"
+    ],
+    "description": "println! with {:?} debug placeholder"
+  }
+}

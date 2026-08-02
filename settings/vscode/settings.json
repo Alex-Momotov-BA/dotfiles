@@ -1,13 +1,28 @@
-{    
+{
+    // rust
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "rust-analyzer.inlayHints.parameterHints.enable": false,
+    "workbench.panel.defaultLocation": "right",     // IntelliJ-style exclusive tool windows — revert instructions in keybindings.json (above cmd+\)
+    "workbench.sideBar.location": "right",
+    "editor.codeLens": false,
+
+    "editor.lineHeight": 17,
+    "editor.wordWrap": "off",
+
+    // general
     "update.mode": "none",                          // prevent VSCode auto update (keep version where terminal splitting works)
-	"workbench.editor.closeOnFileDelete": true,
-    "files.autoSave": "afterDelay",
-    "editor.minimap.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+
+	// workbench
+    "workbench.editor.closeOnFileDelete": true,
     "workbench.tree.indent": 20,
     "workbench.tree.renderIndentGuides": "always",
-    "terminal.external.osxExec": "iTerm.app",
-    "workbench.statusBar.visible": false,
-    "workbench.editor.tabCloseButton": "left",
+    "workbench.editor.untitled.labelFormat": "name",
+    "workbench.editor.enablePreview": false,
+    "workbench.colorTheme": "JetBrains Darcula Theme",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.editor.tabActionLocation": "left",
+    "workbench.tree.enableStickyScroll": false,
 	"workbench.colorCustomizations": {
         "terminal.selectionBackground": "#fbff008a",        // terminal highlight and search
         "editor.selectionBackground": "#1B5986",            // selection - background
@@ -16,51 +31,118 @@
         "editor.findMatchHighlightBackground": "#32593D",   // background of other search matches
         "editor.findMatchHighlightBorder": "#61936F",       // border of other search matches
     },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            // --- real .properties/.ini files ---
+            { "scope": "source.ini", "settings": { "foreground": "#A9B7C6" } },
+            { "scope": "string.quoted.single.ini", "settings": { "foreground": "#A9B7C6" } },
+
+            // --- custom .txt language (txt-custom extension) ---
+            { "scope": "comment.line.number-sign.txtcustom", "settings": { "foreground": "#808080" } }, // # comments -> grey
+            { "scope": "comment.backtick.txtcustom",         "settings": { "foreground": "#808080" } }, // `...` -> grey
+            { "scope": "string.quoted.double.txtcustom",     "settings": { "foreground": "#6A8759" } }, // "..." -> green
+            { "scope": "variable.other.key.txtcustom",       "settings": { "foreground": "#CC7832" } }, // word before = -> orange
+            { "scope": "variable.parameter.flag.txtcustom",  "settings": { "foreground": "#CC7832" } }, // --flag / -f -> orange
+            { "scope": "punctuation.bracket.txtcustom",      "settings": { "foreground": "#FFC66D" } }, // () [] {} -> yellow
+            { "scope": "markup.raw.block.txtcustom",         "settings": { "foreground": "#808080" } }, // ``` block, no/unknown lang -> grey
+            { "scope": "punctuation.definition.fenced.txtcustom", "settings": { "foreground": "#808080" } }, // ``` fence markers -> grey
+            { "scope": "fenced_code.block.language.txtcustom",    "settings": { "foreground": "#808080" } }  // language tag after ``` -> grey
+        ]
+    },
+
+    // explorer
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.autoReveal": "focusNoScroll",
+    "editor.insertSpaces": false,
+    "editor.suggestSelection": "first",
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.stickyScroll.scrollWithEditor": false,
+    "editor.stickyScroll.enabled": false,
+    "editor.minimap.enabled": false,
+
+    // files
+    "files.autoSave": "afterDelay",
+    "files.associations": {
+        "*enkinsfile*": "groovy",
+        "*.txt": "txtcustom"
+    },
+    // open .md files directly in the WYSIWYG editor (single tab, edit the rendered view)
+    // "workbench.editorAssociations": {
+    //     "*.md": "markdownEditor.customEditor"
+    // },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.venv*": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true,
+        "**/.idea": true,
+        "**/.gitignore": true,
+        "**/.github": true,
+        "**/.claude": true,
+    },
     "[yaml]": {
         "editor.tabSize": 2,
         "editor.insertSpaces": true
     },
-    "editor.insertSpaces": false,
-
-    // "editor.wordWrapColumn": 140,
-    // "git.enabled": true,
-    // "editor.quickSuggestions": {
-    //     "comments": "off",
-    //     "strings": "off",
-    //     "other": "off"
+    // proportional (non-mono) font for plain-text files
+    // "[txtcustom]": {
+    //     "editor.fontFamily": "BlinkMacSystemFont, system-ui, -apple-system, \"Segoe UI\", sans-serif",
+    //     "editor.fontSize": 14.4,
+    //     "editor.lineHeight": 17,
+    //     "editor.fontLigatures": false
     // },
-    // "editor.tabCompletion": "onlySnippets",
 
-    "workbench.editor.untitled.labelFormat": "name",
-    "workbench.editor.enablePreview": false,
-    "workbench.activityBar.visible": false,
+    // icons
     "material-icon-theme.folders.theme": "none",
     "material-icon-theme.hidesExplorerArrows": false,
     "material-icon-theme.activeIconPack": "angular",
-    "explorer.confirmDelete": false,
-    // "terminal.integrated.cwd": "/Users/alexmomotov/",
-    "editor.fontSize": 13,
-    "explorer.confirmDragAndDrop": false,
 
-    "files.associations": {
-        "*enkinsfile*": "groovy",
-        "*.txt": "properties"
-    }, // Auto-reveal file in file tree
-    "editor.suggestSelection": "first",
-    
-    "editor.copyWithSyntaxHighlighting": false,
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    },
-    "terminal.integrated.shell.osx": "/bin/bash",
+    // ---------------------------------------------------------------------
+
+    // terminal
     "terminal.integrated.tabs.enabled": false,
     "terminal.integrated.shellIntegration.decorationsEnabled": "never",
-    "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Darcula",
-    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.stickyScroll.enabled": false,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.shell.osx": "/bin/bash",
+
+    // Python
     "python.terminal.activateEnvironment": false,
-    "explorer.autoReveal": false
+    "notebook.output.scrolling": true,
+    "python.REPL.sendToNativeREPL": true,
+    
+    // AI
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "claudeCode.preferredLocation": "sidebar",
+    "chat.viewSessions.orientation": "stacked",
+    "workbench.activityBar.location": "hidden",
+    "claudeCode.useTerminal": true,
+    "chatgpt.commentCodeLensEnabled": false,
+    "breadcrumbs.enabled": false,
+    "explorer.openEditors.visible": 100,
+    "window.commandCenter": false,
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.layoutControl.enabled": false,
+    "editor.fontSize": 13,
+    "workbench.editor.tabSizingFixedMinWidth": 38,
+    "editor.accessibilitySupport": "off",
+    "scm.autoReveal": false,
+    "workbench.statusBar.visible": false,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+
+    // # changes
+    // tabs:		left -> top
+    // theme: 		JetBrains -> Dracula
+    // font: 			13 -> 12
+    // line height: 	17 -> 15
 }

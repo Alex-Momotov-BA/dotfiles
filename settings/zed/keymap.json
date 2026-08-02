@@ -1,0 +1,350 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-\\": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-`": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-\\": "pane::SplitRight"
+    }
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-'": "editor::ToggleSelectedDiffHunks"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-shift-e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "AgentPanel",
+    "unbind": {
+      "cmd-shift-e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "bindings": {
+      "cmd-'": "project_panel::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-r": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // cargo run current: cmd-e (cmd-r was repurposed for rename);
+      // cmd-e's default (use-selection-for-find) is unbound below —
+      // cmd-f still picks up the selection when opening search
+      "cmd-e": [
+        "task::Spawn",
+        {
+          "task_name": "cargo run current"
+        }
+      ]
+    }
+  },
+  // ctrl-r = rename: variable under cursor in the editor, tab name in the terminal.
+  // Displaced defaults: Workspace ctrl-r (recent projects — unbound below, still
+  // reachable via palette) and the terminal's shell reverse-history-search
+  // (bind was terminal::SendKeystroke passthrough — now rename wins).
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-r": "projects::OpenRecent"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-r": "editor::Rename"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-r": "terminal::RenameTerminal"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "unbind": {
+      "cmd-e": "buffer_search::UseSelectionForFind"
+    }
+  },
+  // cmd-t = new tab everywhere: terminal tab in the terminal, file tab in the editor.
+  // Default cmd-t bindings are unbound to avoid collisions.
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-t": "project_symbols::Toggle"
+    }
+  },
+  {
+    "context": "DebugPanel",
+    "unbind": {
+      "cmd-t": "debugger::ToggleThreadPicker"
+    }
+  },
+  {
+    "context": "KeymapEditor",
+    "unbind": {
+      "cmd-t": "keymap_editor::ShowMatchingKeybinds"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-t": "workspace::NewFile"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-t": "workspace::NewTerminal"
+    }
+  },
+  // cmd-1 = project search tab, cmd-2 = file finder (mirrors VS Code setup).
+  // Default cmd-1/cmd-2 bindings in all contexts are unbound to avoid collisions.
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-1": ["workspace::ActivatePane", 0],
+      "cmd-2": ["workspace::ActivatePane", 1]
+    }
+  },
+  {
+    "context": "GitPanel",
+    "unbind": {
+      "cmd-1": "git_panel::ActivateChangesTab",
+      "cmd-2": "git_panel::ActivateHistoryTab"
+    }
+  },
+  {
+    "context": "Welcome",
+    "unbind": {
+      "cmd-1": ["welcome::OpenRecentProject", 0],
+      "cmd-2": ["welcome::OpenRecentProject", 1]
+    }
+  },
+  {
+    "context": "ImageViewer",
+    "unbind": {
+      "cmd-1": "image_viewer::ZoomToActualSize"
+    }
+  },
+  {
+    "context": "RunModal",
+    "unbind": {
+      "cmd-1": "new_process_modal::ActivateTaskTab",
+      "cmd-2": "new_process_modal::ActivateDebugTab"
+    }
+  },
+  {
+    "context": "GitPicker",
+    "unbind": {
+      "cmd-1": "git_picker::ActivateBranchesTab",
+      "cmd-2": "git_picker::ActivateStashTab"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-1": "pane::DeploySearch",
+      "cmd-2": "file_finder::Toggle"
+    }
+  },
+  // cmd-3 = project symbols (was cmd-t before the new-tab rebind).
+  // Default cmd-3 bindings in all contexts are unbound to avoid collisions.
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-3": ["workspace::ActivatePane", 2]
+    }
+  },
+  {
+    "context": "Welcome",
+    "unbind": {
+      "cmd-3": ["welcome::OpenRecentProject", 2]
+    }
+  },
+  {
+    "context": "RunModal",
+    "unbind": {
+      "cmd-3": "new_process_modal::ActivateAttachTab"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-3": "project_symbols::Toggle"
+    }
+  },
+  // Multi-cursor on occurrences, mirroring VS Code setup:
+  // ctrl-q = add cursor at next occurrence, ctrl-e = cursors on all occurrences.
+  // ctrl-e's default (emacs-style end-of-line) is unbound; cmd-right still does that.
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-e": ["editor::MoveToEndOfLine", { "stop_at_soft_wraps": false }]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-q": "editor::SelectNext",
+      "ctrl-e": "editor::SelectAllMatches"
+    }
+  },
+  // shift-cmd-/ = toggle block comment /* */ (mirrors VS Code binding;
+  // shadows cmd-? agent-panel toggle while an editor is focused)
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-?": "editor::ToggleBlockComments"
+    }
+  },
+  // ctrl-w = add cursor below (mirrors VS Code insertCursorBelow).
+  // Default ctrl-w (delete word backwards) is unbound; alt-backspace still does that.
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-w": ["editor::DeleteToPreviousWordStart", { "ignore_newlines": false, "ignore_brackets": false }]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-w": ["editor::AddSelectionBelow", { "skip_soft_wrap": false }]
+    }
+  },
+  // Line editing + inline assist, mirroring VS Code setup:
+  // ctrl-d delete line, ctrl-c duplicate line down, ctrl-cmd-up/down move line,
+  // cmd-i inline AI assist (VS Code: Copilot inline chat).
+  {
+    "context": "Editor",
+    "unbind": {
+      "ctrl-d": "editor::Delete",
+      "cmd-i": "editor::ShowSignatureHelp"
+    }
+  },
+  {
+    "context": "Editor && edit_prediction",
+    "unbind": {
+      "ctrl-cmd-down": "editor::AcceptNextLineEditPrediction"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-d": "editor::DeleteLine",
+      "ctrl-c": "editor::DuplicateLineDown",
+      "ctrl-cmd-up": "editor::MoveLineUp",
+      "ctrl-cmd-down": "editor::MoveLineDown"
+    }
+  },
+  {
+    "context": "!AcpThread > Editor && mode == full",
+    "bindings": {
+      "cmd-i": "assistant::InlineAssist"
+    }
+  },
+  // cmd-enter = send selection to the existing terminal tab (mirrors VS Code
+  // runSelectedText): copy, focus terminal, paste, run, focus back.
+  // ctrl-alt-cmd-t is a helper binding the keystroke sequence relies on.
+  // Scoped to full editors so agent chat / git commit keep their cmd-enter.
+  {
+    "context": "Editor && mode == full",
+    "unbind": {
+      "cmd-enter": "editor::NewlineBelow"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-alt-cmd-t": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "cmd-enter": ["workspace::SendKeystrokes", "cmd-c ctrl-alt-cmd-t cmd-v enter ctrl-alt-cmd-t"]
+    }
+  },
+  // cmd-[ / cmd-] = navigate back / forward (mirrors VS Code setup;
+  // default indent/outdent unbound — cmd-left/right-arrow style indenting
+  // still available via tab / shift-tab on selections)
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-[": "editor::Outdent",
+      "cmd-]": "editor::Indent"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-[": "pane::GoBack",
+      "cmd-]": "pane::GoForward"
+    }
+  },
+  // space in the project tree opens a permanent tab: the default binding
+  // (project_panel::Open) hardcodes preview mode regardless of the
+  // enable_preview_from_project_panel setting (which only clicks respect)
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "space": "project_panel::OpenPermanent"
+    }
+  },
+  // terminal splits, mirroring VS Code: ctrl-h stacked (horizontal divider),
+  // ctrl-v side-by-side (vertical divider)
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-h": "pane::SplitDown",
+      "ctrl-v": "pane::SplitRight"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-?": "agent::ToggleFocus"
+    }
+  }
+]

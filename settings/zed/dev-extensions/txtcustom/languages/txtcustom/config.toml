@@ -1,0 +1,4 @@
+name = "TxtCustom"
+grammar = "txtcustom"
+path_suffixes = ["txt"]
+line_comments = ["# "]

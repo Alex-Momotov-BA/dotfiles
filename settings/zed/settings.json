@@ -1,0 +1,233 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+
+{
+  // CLI
+  "disable_ai": false,
+  "cli_default_open_behavior": "new_window",
+
+  // cmd-w with no tabs left does nothing instead of closing the window/project
+  "when_closing_with_no_tabs": "keep_window_open",
+
+  // route .txt files to the txtcustom dev extension's language;
+  // teach Zed rc-files its Shell Script suffix list doesn't know
+  "file_types": {
+    "TxtCustom": ["txt"],
+    "Shell Script": ["sshrc"]
+  },
+
+  // per-language tweaks
+  "languages": {
+    "TxtCustom": {
+      // no word-suggestion popups while typing prose — but snippets still
+      // pop up when their prefix is typed, so `cel` + tab keeps working
+      "completions": {
+        "words": "disabled"
+      }
+    }
+  },
+
+  // hide from project panel, file finder and search (mirrors VS Code files.exclude;
+  // first row = Zed's defaults, which this setting replaces rather than extends)
+  "file_scan_exclusions": [
+    "**/.git", "**/.svn", "**/.hg", "**/.jj", "**/CVS", "**/.DS_Store", "**/Thumbs.db",
+    "**/__pycache__",
+    "**/.pytest_cache",
+    "**/target",
+    "**/.venv*",
+    "**/.classpath",
+    "**/.project",
+    "**/.settings",
+    "**/.factorypath",
+    "**/.idea",
+    "**/.gitignore",
+    "**/.github",
+    "**/.claude"
+  ],
+
+  "buffer_font_family": "Menlo",
+
+  
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 300
+    }
+  },
+
+  "terminal": {
+    // no font_size here: terminal inherits buffer_font_size, so cmd+-/cmd+=
+    // scale editor and terminal together (setting it explicitly decouples them)
+    "font_size": 12,
+    "line_height": { "custom": 1.2 },
+    "dock": "right",
+    "detect_venv": "off"
+  },
+
+  // hide the editor's horizontal scrollbar (vertical stays)
+  "scrollbar": {
+    "axes": {
+      "horizontal": false
+    }
+  },
+  
+  "project_panel": {
+    "button": true,
+    "folder_icons": false,
+    "entry_spacing": "standard",
+    // no auto-expanding the tree to the active file; reveal manually with
+    // cmd-shift-e (pane::RevealInProjectPanel) when wanted
+    "auto_reveal_entries": true
+  },
+  
+  "status_bar": {
+    "experimental.show": false,
+  },
+  
+  "title_bar": {
+    "show_branch_name": false,
+    "show_project_items": false,
+    "show_onboarding_banner": false,
+    "show_user_picture": false,
+    "show_user_menu": false,
+    "show_sign_in": false
+  },
+  
+  "tab_bar": {
+    "show_nav_history_buttons": false
+  },
+  "tabs": {
+    "file_icons": true,
+    "close_position": "left"
+  },
+  "preview_tabs": {
+    "enable_preview_from_project_panel": false
+  },
+  
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false,
+    "agent_review": false,
+    "code_actions": false
+  },
+  "buffer_line_height": "standard",
+  // pressing enter inside a // comment starts a plain line, not another comment
+  "extend_comment_on_newline": false,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  
+
+  // _____________________________________________________________________________________________
+  // FONTS
+  "ui_font_size": 15.0,
+  "buffer_font_size": 13,   // editor font size
+
+  // _____________________________________________________________________________________________
+  // THEME
+  "auto_install_extensions": {
+    "jetbrains-darcula-theme-by-bronya0": true,
+    "material-icon-theme": true,
+    "html": true,
+    "toml": true
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme"
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Dark Hard",
+    "dark": "Jetbrains Darcula Theme By Bronya0",
+  },
+  // Fixes for the Darcula port, matching the VS Code "JetBrains Darcula Theme":
+  // visible active-tab / file-tree selection, and closer Rust syntax colors.
+  // Rainbow brackets like VS Code's default bracket-pair colorization;
+  // colors come from the "accents" list in theme_overrides below.
+  "colorize_brackets": true,
+  "theme_overrides": {
+    "Jetbrains Darcula Theme By Bronya0": {
+      "accents": ["#FFD700", "#DA70D6", "#179FFF"],
+      "terminal.background": "#2b2b2b",
+      "terminal.foreground": "#bbbbbb",
+      // ANSI palette copied from VS Code's dark-theme defaults (the VS Code
+      // Darcula theme defines none, so its terminal shows these defaults)
+      "terminal.ansi.black": "#000000",
+      "terminal.ansi.red": "#cd3131",
+      "terminal.ansi.green": "#0dbc79",
+      "terminal.ansi.yellow": "#e5e510",
+      "terminal.ansi.blue": "#2472c8",
+      "terminal.ansi.magenta": "#bc3fbc",
+      "terminal.ansi.cyan": "#11a8cd",
+      "terminal.ansi.white": "#e5e5e5",
+      "terminal.ansi.bright_black": "#666666",
+      "terminal.ansi.bright_red": "#f14c4c",
+      "terminal.ansi.bright_green": "#23d18b",
+      "terminal.ansi.bright_yellow": "#f5f543",
+      "terminal.ansi.bright_blue": "#3b8eea",
+      "terminal.ansi.bright_magenta": "#d670d6",
+      "terminal.ansi.bright_cyan": "#29b8db",
+      "terminal.ansi.bright_white": "#e5e5e5",
+      "editor.foreground": "#A9B7C6",
+      "tab.active_background": "#515658",
+      "element.selected": "#4b6eaf",
+      "element.hover": "#ffffff14",
+      "ghost_element.selected": "#4b6eaf",
+      "ghost_element.hover": "#ffffff14",
+      // project-tree keyboard cursor: rendered as a border-only outline (the
+      // open file gets the solid element.selected fill) — port had it at 16% white
+      "panel.focused_border": "#6f92cf",
+      // case 1: cursor-on-symbol occurrence highlight (LSP) — VS Code wordHighlight grays
+      "editor.document_highlight.read_background": "#575757b8",
+      "editor.document_highlight.write_background": "#004972b8",
+      // case 2: matches of the current selection — vibrant green like the
+      // VS Code selectionHighlightBorder/findMatchHighlight customizations
+      "editor.document_highlight.bracket_background": "#32593d",
+      "syntax": {
+        "function": { "color": "#FFC66D" },
+        "function.special": { "color": "#4EADE5" },
+        "attribute": { "color": "#BBB529" },
+        "lifetime": { "color": "#20999D" },
+        "type": { "color": "#9876AA" },
+        "type.builtin": { "color": "#CC7832" },
+        "boolean": { "color": "#CC7832" },
+        "operator": { "color": "#A9B7C6" },
+        // note: in Zed's Rust grammar this bucket covers `.` `;` `,` `::` together —
+        // VS Code's orange `;`/`,` can't be matched without also coloring `.`/`::`
+        "punctuation.delimiter": { "color": "#A9B7C6" },
+        "comment.doc": { "color": "#629755", "font_style": "italic" },
+        // custom captures from the txtcustom dev extension (.txt files)
+        "txtcustom.key": { "color": "#CC7832" },
+        "txtcustom.flag": { "color": "#CC7832" },
+        "txtcustom.bracket": { "color": "#FFC66D" },
+        // markdown (the port defines no markdown captures at all);
+        // colors from the VS Code Darcula theme's markdown token rules
+        "title": { "color": "#FFC66D", "font_weight": 700 },
+        "emphasis": { "color": "#CC7832", "font_style": "italic" },
+        "emphasis.strong": { "color": "#CC7832", "font_weight": 700 },
+        "link_text": { "color": "#287BDE" },
+        "link_uri": { "color": "#287BDE" },
+        "text.literal": { "color": "#808080" },
+        "punctuation.list_marker": { "color": "#CC7832" }
+      }
+    }
+  },
+  
+}

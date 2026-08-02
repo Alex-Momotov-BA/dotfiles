@@ -329,9 +329,22 @@
         "command": "-search.action.openInEditor",
         "when": "hasSearchResult && searchViewletFocus"
     },
+    // ── IntelliJ-style exclusive right-side tool windows ─────────────────────────
+    // cmd+\ and cmd+' below hide each other's container (terminal panel <-> explorer
+    // sidebar) so only one is visible at a time. Requires panel on the right:
+    // "workbench.panel.defaultLocation": "right" in settings.json + "View: Move Panel Right".
+    // To RESTORE the previous independent behaviour:
+    //   1. cmd+\  -> replace runCommands binding with plain:
+    //        { "key": "cmd+\\", "command": "workbench.action.terminal.toggleTerminal" }
+    //   2. cmd+'  -> replace the runCommands binding with the originals:
+    //        { "key": "cmd+'", "command": "workbench.files.action.focusFilesExplorer" }
+    //        { "key": "cmd+'", "command": "workbench.action.toggleSidebarVisibility" }
+    //   3. optionally remove "workbench.panel.defaultLocation" from settings.json
+    //      and run "View: Move Panel To Bottom".
     {
         "key": "cmd+\\",
-        "command": "workbench.action.terminal.toggleTerminal"
+        "command": "runCommands",
+        "args": { "commands": ["workbench.action.closeSidebar", "workbench.action.terminal.toggleTerminal"] }
     },
     {
         "key": "ctrl+f",
@@ -459,13 +472,12 @@
         "key": "shift+cmd+e",
         "command": "-workbench.view.explorer"
     },
+    // part of "IntelliJ-style exclusive right-side tool windows" — see the revert
+    // instructions in the comment block above the cmd+\ binding at the end of this file
     {
         "key": "cmd+'",
-        "command": "workbench.files.action.focusFilesExplorer"
-    },
-    {
-        "key": "cmd+'",
-        "command": "workbench.action.toggleSidebarVisibility"
+        "command": "runCommands",
+        "args": { "commands": ["workbench.action.closePanel", "workbench.action.toggleSidebarVisibility"] }
     },
     {
         "key": "cmd+r",
@@ -570,10 +582,6 @@
         "when": "terminalFocus"
     },
     {
-        "key": "shift+cmd+\\",
-        "command": "workbench.action.toggleMaximizedPanel"
-    },
-    {
         "key": "cmd+l",
         "command": "rainbow-csv.Align"
     },
@@ -581,5 +589,104 @@
         "key": "cmd+enter",
         // "command": "run-external.iterm"
         "command": "workbench.action.terminal.runSelectedText"
+    },
+    {
+        "key": "shift+cmd+i",
+        "command": "-workbench.action.chat.openagent",
+        "when": "config.chat.agent.enabled && !chatSetupDisabled && !chatSetupHidden"
+    },
+    {
+        "key": "alt+cmd+b",
+        "command": "-workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "shift+cmd+\\",
+        "command": "-editor.action.jumpToBracket",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+cmd+\\",
+        "command": "-workbench.action.terminal.focusTabs",
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "shift+cmd+i",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    // {
+    //     "key": "cmd+enter",
+    //     // "command": "python.execInREPL",
+    //     "command": "python.execSelectionInTerminal",
+    //     "when": "editorLangId == 'python'"
+    // },
+    {
+        "key": "shift+cmd+backspace",
+        "command": "-agentSession.unarchive",
+        "when": "agentSessionIsArchived && agentSessionsViewerFocused"
+    },
+    {
+        "key": "shift+cmd+backspace",
+        "command": "-search.searchEditor.action.deleteFileResults",
+        "when": "inSearchEditor"
+    },
+    {
+        "key": "shift+cmd+backspace",
+        "command": "workbench.action.removeRootFolder"
+    },
+    {
+        "key": "shift+cmd+\\",
+        "command": "workbench.action.toggleAuxiliaryBar"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.quickOpenNavigateNextInRecentFilesPicker",
+        "when": "inQuickOpen && inRecentFilesPicker"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "f2",
+        "command": "-editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\u001b\r"
+        },
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+u",
+        "command": "-cursorUndo",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+u",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+    },
+    {
+        "key": "shift+cmd+/",
+        "command": "editor.action.blockComment",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+u",
+        "command": "-workbench.action.output.toggleOutput",
+        "when": "workbench.panel.output.active"
+    },
+    {
+        "key": "shift+cmd+u",
+        "command": "github.copilot.chat.completions.toggle"
+    },
+    {
+        "key": "shift+cmd+r",
+        "command": "workbench.action.tasks.runTask",
+        "args": "cargo run current"
     }
 ]

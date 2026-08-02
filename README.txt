@@ -43,6 +43,11 @@
   - integrated          workbench.action.terminal.runSelectedText
   - external terminal   run-external.iterm
 
+# zed
+- settings, keymap, tasks and snippets arrive via the 1_install.sh symlinks automatically
+- registry extensions (darcula theme, icons, html, toml) auto-install on first launch via auto_install_extensions in settings.json
+- txtcustom dev extension (one-time): cmd-shift-p > 'zed: extensions' > 'Install Dev Extension' > select ~/.config/zed/dev-extensions/txtcustom
+
 # iterm
 - preferences > general tab > 'Preferences' subtab > "Load preferences from a custom folder or URL" > Browse and select .../dotfiles/settings/iterm/iterm_settings/ dir > 'Save current settings to folder' > also select 'save changes': 'automatically'
 - close iterm > git checkout settings/iterm/iterm_settings/com.googlecode.iterm2.plist

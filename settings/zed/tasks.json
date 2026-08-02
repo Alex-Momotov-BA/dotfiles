@@ -1,0 +1,12 @@
+// Zed tasks
+//
+// For information on tasks, see the Zed documentation:
+// https://zed.dev/docs/tasks
+[
+  {
+    "label": "cargo run current",
+    "command": "f=\"$ZED_FILE\"; rel=\"${f#*/examples/}\"; if [ \"$rel\" != \"$f\" ]; then name=\"${rel%%/*}\"; cargo run --example \"${name%.rs}\"; else cargo run; fi",
+    "cwd": "$ZED_DIRNAME",
+    "reveal": "always"
+  }
+]

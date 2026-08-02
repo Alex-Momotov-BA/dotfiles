@@ -1,0 +1,11 @@
+id = "txtcustom"
+name = "Custom TXT Highlighting"
+version = "0.0.1"
+schema_version = 1
+authors = ["Alex <momotovalex@gmail.com>"]
+description = "Custom highlighting for .txt files (port of the VS Code txt-custom extension)"
+repository = "file:///Users/alex/.config/zed/dev-extensions/tree-sitter-txtcustom"
+
+[grammars.txtcustom]
+repository = "file:///Users/alex/.config/zed/dev-extensions/tree-sitter-txtcustom"
+rev = "a089bdf84bdf9125d439c829f5f74ebf81e80a60"
