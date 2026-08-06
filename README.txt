@@ -36,13 +36,6 @@
 - save favourite dirs on the left
 - set iTerm as default terminal. Preferences > General > Default Terminal
 
-# vscode
-- might need to rerun the 1_install.sh commands to recreate symlinks and duti associations
-- activate dracula theme and material icon theme from command palette
-- To switch between running commands in integrated/external terminal, search 'Open Keyboard Shortcuts (JSON)' and switch up last statement:
-  - integrated          workbench.action.terminal.runSelectedText
-  - external terminal   run-external.iterm
-
 # zed
 - settings, keymap, tasks and snippets arrive via the 1_install.sh symlinks automatically
 - registry extensions (darcula theme, icons, html, toml) auto-install on first launch via auto_install_extensions in settings.json
@@ -91,33 +84,7 @@ Sym links in ~/... point to files in  ~/_projects_my/dotfiles/settings/... for a
 # _____________________________________________________________________________________________
 # SHORTCUTS 
 
-# VsCode cli commands
-code --list-extensions	# list extensions
-code -a <folder>		# add folder or file to current vscode window
-
-# VsCode shortcuts
-shift + cmd + P 	# command pallete
-shift + cmd + T		# terminal at current file
-cmd + E				# extensions
-cmd + R				# reveal file
-cmd + S				# search
-
-cmd + J 		# prettify JSON
-control + J		# flatten selected JSON
-cmd + L			# align columns of CSV
-
-# VsCode snippets (expandable with Tab)
-cel
-
-# VsCode Python plugin (ms-python.python)
-Python: Select Interpreter	# Switch between Python interpreters, versions, and environments.
-Python: Configure Tests		# Select a test framework and configure it to display the Test Explorer.
-Format Document				# Formats code using the provided formatter in the settings.json file.
-
-To run a debugger:	go to python file, create breakpoint, on the upper bar click down arrow and select "Debug Python File"
-To run file in terminal: same as above but just click the play button
-
-# Vivaldi 
+# Vivaldi
 shift + cmd + P		# 'unpin tab' pin / unpin tab
 shift + cmd + B		# 'panel toggle' toggle side panel arrow (in order to close persistent side panel thing)
 cmd + B 		# 'bookmark panel' 

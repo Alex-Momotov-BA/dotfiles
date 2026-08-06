@@ -1,7 +1,6 @@
-// Tree-sitter port of the VS Code "txt-custom" TextMate grammar
-// (~/.vscode/extensions/txt-custom-0.0.1/syntaxes/txt.tmLanguage.json).
-// Flat token-soup grammar: every rule is a token; longest-match plus
-// precedence reproduces the TextMate regex behavior.
+// Tree-sitter grammar for plain-text notes (.txt), ported from an earlier
+// TextMate grammar. Flat token-soup grammar: every rule is a token;
+// longest-match plus precedence reproduces the original regex behavior.
 module.exports = grammar({
   name: 'txtcustom',
 

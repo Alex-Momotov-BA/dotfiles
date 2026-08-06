@@ -9,7 +9,6 @@ defaults write -g com.apple.trackpad.scaling -float 20.0 # Trackpad speed
 defaults write com.apple.finder QuitMenuItem -bool true # Able to quit Finder
 
 # install software
-brew install --cask visual-studio-code
 brew install --cask zed
 brew install --cask vivaldi
 brew install --cask iterm2
@@ -62,14 +61,6 @@ sudo mv sshrc /usr/local/bin/
 # Duti file associations
 bash ~/_docs/_projects/dotfiles/settings/duti_associations.sh
 
-# vscode recreate links
-rm ~/Library/Application\ Support/Code/User/settings.json
-rm ~/Library/Application\ Support/Code/User/keybindings.json
-rm -rf ~/Library/Application\ Support/Code/User/snippets
-ln -s ~/_docs/_projects/dotfiles/settings/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -s ~/_docs/_projects/dotfiles/settings/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
-ln -s ~/_docs/_projects/dotfiles/settings/vscode/snippets/ ~/Library/Application\ Support/Code/User/
-
 # zed recreate links (registry extensions auto-install via auto_install_extensions in settings.json;
 # the txtcustom dev extension needs the one-time manual install step — see README)
 mkdir -p ~/.config/zed
@@ -83,14 +74,6 @@ ln -s ~/_docs/_projects/dotfiles/settings/zed/keymap.json ~/.config/zed/keymap.j
 ln -s ~/_docs/_projects/dotfiles/settings/zed/tasks.json ~/.config/zed/tasks.json
 ln -s ~/_docs/_projects/dotfiles/settings/zed/snippets ~/.config/zed/snippets
 ln -s ~/_docs/_projects/dotfiles/settings/zed/dev-extensions ~/.config/zed/dev-extensions
-
-# vscode extentions
-code --install-extension tomoki1207.pdf
-code --install-extension mohsen1.prettify-json
-code --install-extension PKief.material-icon-theme
-code --install-extension rokoroku.vscode-theme-darcula
-code --install-extension mechatroner.rainbow-csv
-code --install-extension nachocab.run-external
 
 # bashrc recreate sym links
 rm -rf ~/.bashrc
