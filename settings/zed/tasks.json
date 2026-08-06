@@ -4,6 +4,11 @@
 // https://zed.dev/docs/tasks
 [
   {
+    "label": "minify json",
+    "command": "jq -c . \"$ZED_FILE\" > \"$ZED_FILE.min.tmp\" && mv \"$ZED_FILE.min.tmp\" \"$ZED_FILE\"",
+    "reveal": "never"
+  },
+  {
     "label": "cargo run current",
     "command": "f=\"$ZED_FILE\"; rel=\"${f#*/examples/}\"; if [ \"$rel\" != \"$f\" ]; then name=\"${rel%%/*}\"; cargo run --example \"${name%.rs}\"; else cargo run; fi",
     "cwd": "$ZED_DIRNAME",

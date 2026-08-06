@@ -231,6 +231,13 @@
       "ctrl-e": "editor::SelectAllMatches"
     }
   },
+  // ctrl-z = documentation hover bubble for the symbol under the cursor
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-z": "editor::Hover"
+    }
+  },
   // shift-cmd-/ = toggle block comment /* */ (mirrors VS Code binding;
   // shadows cmd-? agent-panel toggle while an editor is focused)
   {
@@ -251,6 +258,25 @@
     "context": "Editor",
     "bindings": {
       "ctrl-w": ["editor::AddSelectionBelow", { "skip_soft_wrap": false }]
+    }
+  },
+  // cmd-up/down = fold/unfold (mirrors VS Code setup; the macOS default
+  // jump-to-start/end is unbound — ctrl-cmd-up/down still moves lines,
+  // and alt-up/down line-moving is unbound like in VS Code)
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd-up": "editor::MoveToBeginning",
+      "cmd-down": "editor::MoveToEnd",
+      "alt-up": "editor::MoveLineUp",
+      "alt-down": "editor::MoveLineDown"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-up": "editor::Fold",
+      "cmd-down": "editor::UnfoldLines"
     }
   },
   // Line editing + inline assist, mirroring VS Code setup:
@@ -333,18 +359,57 @@
     }
   },
   // terminal splits, mirroring VS Code: ctrl-h stacked (horizontal divider),
-  // ctrl-v side-by-side (vertical divider)
+  // ctrl-v side-by-side (vertical divider); alt-cmd-up/down moves focus
+  // between stacked split rows (complements alt-cmd-left/right tab switching)
   {
     "context": "Terminal",
     "bindings": {
       "ctrl-h": "pane::SplitDown",
-      "ctrl-v": "pane::SplitRight"
+      "ctrl-v": "pane::SplitRight",
+      "alt-cmd-up": "workspace::ActivatePaneUp",
+      "alt-cmd-down": "workspace::ActivatePaneDown"
     }
   },
   {
     "context": "Workspace",
     "unbind": {
       "cmd-?": "agent::ToggleFocus"
+    }
+  },
+  // JSON pretty/inline (mirrors VS Code prettifyJSON on cmd-j):
+  // cmd-j = format (prettify — works for any language, incl. JSON via Prettier),
+  // shift-cmd-j = jq-minify the current file back to one line.
+  // cmd-j shadows ToggleBottomDock while an editor is focused (bottom dock unused);
+  // shift-cmd-j shadows the search-filters toggle only inside search views.
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-j": "editor::Format",
+      "shift-cmd-j": ["task::Spawn", { "task_name": "minify json" }]
+    }
+  },
+  {
+    "context": "FileFinder || FileFinder > Picker > Editor || FileFinder > Picker > menu",
+    "unbind": {
+      "cmd-j": "pane::SplitDown"
+    }
+  },
+  {
+    "context": "TextFinder || TextFinder > Picker > Editor || TextFinder > Picker > menu",
+    "unbind": {
+      "cmd-j": "pane::SplitDown"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-j": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-j": "workspace::ToggleBottomDock"
     }
   }
 ]
